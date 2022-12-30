@@ -9,6 +9,9 @@ Demonstrates the issue : https://github.com/pact-foundation/pact-js/issues/1037
 ### Run app
 `npm run dev`
 
-### Run contract test
-`npm run test:contract`
+### Run consumer test
+`npm run test:consumer`
+
+### Run provider test
+`npm run test:provider`
 
