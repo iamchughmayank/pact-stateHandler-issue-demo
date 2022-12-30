@@ -1,0 +1,82 @@
+{
+  "consumer": {
+    "name": "SupportService"
+  },
+  "interactions": [
+    {
+      "description": "a request to get client by id",
+      "providerStates": [
+        {
+          "name": "valid id"
+        }
+      ],
+      "request": {
+        "generators": {
+          "path": {
+            "expression": "${clientId}",
+            "type": "ProviderState"
+          }
+        },
+        "matchingRules": {
+          "path": {
+            "combine": "AND",
+            "matchers": [
+              {
+                "match": "type"
+              }
+            ]
+          }
+        },
+        "method": "GET",
+        "path": "100"
+      },
+      "response": {
+        "body": {
+          "data": [
+            {
+              "account_status": "test",
+              "active": 1,
+              "client_id": 24297,
+              "client_name": "Rowe - Cummings",
+              "created": "2017-07-14T16:32:29.000Z",
+              "email_address": "Grover.McCullough@yahoo.com"
+            }
+          ],
+          "result": 1,
+          "status": "success"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "10.4.0"
+    },
+    "pactRust": {
+      "ffi": "0.3.19",
+      "models": "1.0.3"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "ClientService"
+  }
+}

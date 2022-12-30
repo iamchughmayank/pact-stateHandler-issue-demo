@@ -6,13 +6,16 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node app.js",
-    "test:contract": "NODE_OPTIONS=--experimental-vm-modules npx jest -- __tests__/provider.spec.js"
+    "dev": "DEBUG='express:router' nodemon app.js",
+    "test:consumer": "NODE_OPTIONS=--experimental-vm-modules npx jest -- __tests__/consumer.spec.js",
+    "test:provider": "NODE_OPTIONS=--experimental-vm-modules npx jest -- __tests__/provider.spec.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@pact-foundation/pact": "^10.4.0"
+    "@pact-foundation/pact": "^10.4.0",
+    "node-fetch": "^3.3.0",
+    "nodemon": "^2.0.20"
   },
   "dependencies": {
     "@types/jest": "^29.2.4",

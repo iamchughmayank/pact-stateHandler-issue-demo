@@ -17,12 +17,12 @@ describe( 'pact Verification', () => {
 		providerVersion: '1.0.0',
 		log: path.resolve( process.cwd(), 'logs', 'pact.log' ),
 		logLevel: 'DEBUG',
-		pactUrls: [ path.resolve( __dirname, './SupportService-ClientService.json' ) ],
+		pactUrls: [ path.resolve( __dirname, '../pacts/SupportService-ClientService.json' ) ],
 		stateHandlers: {
 			'valid id': {
 				setup: () => {
-					clientId = '26';
-					return Promise.resolve( 'client id set to 26' );
+					clientId = '23';
+					return Promise.resolve( {clientId: `/clients/${clientId}`} );
 				},
 
 			},
@@ -32,11 +32,11 @@ describe( 'pact Verification', () => {
 			// 	return Promise.resolve( 'client id set to 26' );
 			// },
 		},
-		requestFilter: ( req, res, next ) => {
-			req.url = `/clients/${ clientId }`;
-			req.method = 'GET';
-			next();
-		},
+		// requestFilter: ( req, res, next ) => {
+		// 	req.url = `/clients/${ clientId }`;
+		// 	req.method = 'GET';
+		// 	next();
+		// },
 	};
 
 	it( 'should validate the expectations of SupportService for fetching one client by id', () => {
